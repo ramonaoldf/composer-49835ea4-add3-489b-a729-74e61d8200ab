@@ -1,10 +1,10 @@
 <x-jet-form-section submit="updateProfileInformation">
     <x-slot name="title">
-        Profile Information
+        {{ __('Profile Information') }}
     </x-slot>
 
     <x-slot name="description">
-        Update your account's profile information and email address.
+        {{ __('Update your account\'s profile information and email address.') }}
     </x-slot>
 
     <x-slot name="form">
@@ -28,7 +28,7 @@
 
                 <!-- Current Profile Photo -->
                 <div class="mt-2" x-show="! photoPreview">
-                    <img src="{{ $this->user->profile_photo_url }}" class="rounded-full h-20 w-20">
+                    <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}" class="rounded-full h-20 w-20 object-cover">
                 </div>
 
                 <!-- New Profile Photo Preview -->
@@ -39,7 +39,7 @@
                 </div>
 
                 <x-jet-secondary-button class="mt-2" type="button" x-on:click.prevent="$refs.photo.click()">
-                    Select A New Photo
+                    {{ __('Select A New Photo') }}
                 </x-jet-secondary-button>
 
                 <x-jet-input-error for="photo" class="mt-2" />
@@ -63,11 +63,11 @@
 
     <x-slot name="actions">
         <x-jet-action-message class="mr-3" on="saved">
-            Saved.
+            {{ __('Saved.') }}
         </x-jet-action-message>
 
         <x-jet-button>
-            Save
+            {{ __('Save') }}
         </x-jet-button>
     </x-slot>
 </x-jet-form-section>
