@@ -1,5 +1,5 @@
 <script setup>
-import { useForm } from '@inertiajs/inertia-vue3';
+import { useForm } from '@inertiajs/vue3';
 import ActionMessage from '@/Components/ActionMessage.vue';
 import FormSection from '@/Components/FormSection.vue';
 import InputError from '@/Components/InputError.vue';
@@ -43,8 +43,8 @@ const updateTeamName = () => {
                     <img class="w-12 h-12 rounded-full object-cover" :src="team.owner.profile_photo_url" :alt="team.owner.name">
 
                     <div class="ml-4 leading-tight">
-                        <div>{{ team.owner.name }}</div>
-                        <div class="text-gray-700 text-sm">
+                        <div class="dark:text-white">{{ team.owner.name }}</div>
+                        <div class="text-gray-700 dark:text-gray-300 text-sm">
                             {{ team.owner.email }}
                         </div>
                     </div>
