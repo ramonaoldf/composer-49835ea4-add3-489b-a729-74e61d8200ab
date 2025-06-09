@@ -1,5 +1,5 @@
 <script setup>
-import { useForm } from '@inertiajs/inertia-vue3';
+import { useForm } from '@inertiajs/vue3';
 import FormSection from '@/Components/FormSection.vue';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
@@ -36,8 +36,8 @@ const createTeam = () => {
                     <img class="object-cover w-12 h-12 rounded-full" :src="$page.props.user.profile_photo_url" :alt="$page.props.user.name">
 
                     <div class="ml-4 leading-tight">
-                        <div>{{ $page.props.user.name }}</div>
-                        <div class="text-sm text-gray-700">
+                        <div class="dark:text-white">{{ $page.props.user.name }}</div>
+                        <div class="text-sm text-gray-700 dark:text-gray-300">
                             {{ $page.props.user.email }}
                         </div>
                     </div>
