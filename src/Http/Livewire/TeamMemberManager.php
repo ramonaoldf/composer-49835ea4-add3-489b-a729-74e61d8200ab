@@ -9,6 +9,7 @@ use Laravel\Jetstream\Contracts\InvitesTeamMembers;
 use Laravel\Jetstream\Contracts\RemovesTeamMembers;
 use Laravel\Jetstream\Features;
 use Laravel\Jetstream\Jetstream;
+use Laravel\Jetstream\Role;
 use Laravel\Jetstream\TeamInvitation;
 use Livewire\Component;
 
@@ -251,7 +252,15 @@ class TeamMemberManager extends Component
      */
     public function getRolesProperty()
     {
-        return array_values(Jetstream::$roles);
+        return collect(Jetstream::$roles)->transform(function ($role) {
+            return with($role->jsonSerialize(), function ($data) {
+                return (new Role(
+                    $data['key'],
+                    $data['name'],
+                    $data['permission']
+                ))->description($data['description']);
+            });
+        })->values()->all();
     }
 
     /**
