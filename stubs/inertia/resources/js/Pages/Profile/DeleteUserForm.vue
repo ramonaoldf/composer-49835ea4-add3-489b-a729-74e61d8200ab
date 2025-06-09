@@ -14,7 +14,7 @@
             </div>
 
             <div class="mt-5">
-                <jet-danger-button @click.native="confirmTeamDeletion">
+                <jet-danger-button @click.native="confirmUserDeletion">
                     Delete Account
                 </jet-danger-button>
             </div>
@@ -87,8 +87,14 @@
         },
 
         methods: {
-            confirmTeamDeletion() {
-                this.confirmingUserDeletion = true
+            confirmUserDeletion() {
+                this.form.password = '';
+
+                this.confirmingUserDeletion = true;
+
+                setTimeout(() => {
+                    this.$refs.password.focus()
+                }, 250)
             },
 
             deleteUser() {
@@ -96,7 +102,7 @@
                     preserveScroll: true
                 }).then(response => {
                     if (! this.form.hasErrors()) {
-                        this.confirmingUserDeletion = false
+                        this.confirmingUserDeletion = false;
                     }
                 })
             },
