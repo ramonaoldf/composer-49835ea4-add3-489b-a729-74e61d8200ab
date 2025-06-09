@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -97,10 +97,10 @@
                                     @endif
 
                                     <!-- Authentication -->
-                                    <form method="POST" action="/logout">
+                                    <form method="POST" action="{{ route('logout') }}">
                                         @csrf
 
-                                        <x-jet-dropdown-link href="/logout"
+                                        <x-jet-dropdown-link href="{{ route('logout') }}"
                                                             onclick="event.preventDefault();
                                                                      this.closest('form').submit();">
                                             Logout
@@ -156,10 +156,10 @@
                             @endif
 
                             <!-- Authentication -->
-                            <form method="POST" action="/logout">
+                            <form method="POST" action="{{ route('logout') }}">
                                 @csrf
 
-                                <x-jet-responsive-nav-link href="/logout"
+                                <x-jet-responsive-nav-link href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
                                                          this.closest('form').submit();">
                                     Logout
